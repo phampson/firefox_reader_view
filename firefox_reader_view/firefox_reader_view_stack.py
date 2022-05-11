@@ -2,7 +2,6 @@ from constructs import Construct
 from aws_cdk import (
     Duration,
     Stack,
-    aws_iam as iam,
     aws_sqs as sqs,
     aws_sns as sns,
     aws_sns_subscriptions as subs,
@@ -19,7 +18,7 @@ class FirefoxReaderViewStack(Stack):
         # Create the lambda function in this stack
         my_lambda = _lambda.Function(
             self, 'HelloHandler',
-            runtime=_lambda.Runtime.PYTHON_3_7,
+            runtime=_lambda.Runtime.NODEJS_14_X,
             code=_lambda.Code.from_asset('lambda'),
             handler='hello.handler',
         )
@@ -30,14 +29,14 @@ class FirefoxReaderViewStack(Stack):
             handler=my_lambda,
         )
 
-
-        queue = sqs.Queue(
-            self, "FirefoxReaderViewQueue",
-            visibility_timeout=Duration.seconds(300),
-        )
-
-        topic = sns.Topic(
-            self, "FirefoxReaderViewTopic"
-        )
-
-        topic.add_subscription(subs.SqsSubscription(queue))
+        # I don't think I need this so let's find out lol
+        # queue = sqs.Queue(
+        #     self, "FirefoxReaderViewQueue",
+        #     visibility_timeout=Duration.seconds(300),
+        # )
+        #
+        # topic = sns.Topic(
+        #     self, "FirefoxReaderViewTopic"
+        # )
+        #
+        # topic.add_subscription(subs.SqsSubscription(queue))
