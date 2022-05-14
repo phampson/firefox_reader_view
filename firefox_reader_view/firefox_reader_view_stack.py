@@ -4,12 +4,11 @@ from aws_cdk import (
     Stack,
     aws_lambda as _lambda,
     aws_apigateway as apigw,
-    pipelines
 )
 
 
 class FirefoxReaderViewStack(Stack):
-    def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
+    def __init__(self, scope: Construct, construct_id: str, stage_name: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         # Create the lambda function in this stack
