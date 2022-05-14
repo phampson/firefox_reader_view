@@ -26,7 +26,7 @@ class PipelineStack(cdk.Stack):
 
         testing_stage = pipeline.add_stage(PipelineStage(self, "test", {"env": {"account": "", "region": "us-west-1"}}))
 
-        # pipeline.add_post("Manual approval after test succeeds")
+        pipeline.add_post("Manual approval after test succeeds")
 
         prod_stage = pipeline.add_stage(PipelineStage(self, "prod", {"env": {"account": "", "region": "us-west-1"}}))
 
