@@ -1,5 +1,5 @@
 import aws_cdk as cdk
-from aws_cdk.pipelines import CodePipeline, CodePipelineSource, ShellStep
+from aws_cdk.pipelines import CodePipeline, CodePipelineSource, ShellStep, ManualApprovalStep
 from constructs import Construct
 
 from pipeline.stage import PipelineStage
@@ -24,9 +24,8 @@ class PipelineStack(cdk.Stack):
             )
         )
 
-        testing_stage = pipeline.add_stage(PipelineStage(self, "test", {"env": {"account": "", "region": "us-west-1"}}))
+        test_stage = pipeline.add_stage(PipelineStage(self, "test", env=cdk.Environment(account="653592191043", region="us-west-1")))
+        test_stage.add_post(ManualApprovalStep("Approval"))
 
-        # pipeline.add_post("Manual approval after test succeeds")
-
-        prod_stage = pipeline.add_stage(PipelineStage(self, "prod", {"env": {"account": "", "region": "us-west-1"}}))
+        prod_stage = pipeline.add_stage(PipelineStage(self, "prod", env=cdk.Environment(account="653592191043", region="us-west-1")))
 
