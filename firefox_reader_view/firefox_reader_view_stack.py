@@ -1,3 +1,4 @@
+from aws_cdk.aws_apigateway import StageOptions
 from constructs import Construct
 from aws_cdk import (
     Duration,
@@ -26,4 +27,5 @@ class FirefoxReaderViewStack(Stack):
         apigw.LambdaRestApi(
             self, 'Endpoint',
             handler=my_lambda,
+            deploy_options=StageOptions(stage_name)
         )
