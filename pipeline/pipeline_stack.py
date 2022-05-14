@@ -13,7 +13,7 @@ class MyPipelineStack(cdk.Stack):
             pipeline_name="MyPipeline",
             synth=ShellStep(
                 "Synth",
-                input=CodePipelineSource.git_hub("phampson/REPO", "main"),
+                input=CodePipelineSource.git_hub("phampson/firefox_reader_view", "main"),
                 commands=[
                     "npm install -g aws-cdk",
                     "python -m pip install -r requirements.txt",
