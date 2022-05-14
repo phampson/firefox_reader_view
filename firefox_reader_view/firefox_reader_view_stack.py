@@ -19,7 +19,7 @@ class FirefoxReaderViewStack(Stack):
             handler='hello.handler',
             memory_size=4096,
             timeout=Duration.seconds(60),
-            environment={"stageName": stage_name}
+            environment={"stage_name": stage_name}
         )
 
         # Adding in a gateway to route the lambda
