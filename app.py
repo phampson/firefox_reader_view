@@ -2,7 +2,7 @@
 
 import aws_cdk as cdk
 
-from firefox_reader_view.pipeline_stack import PipelineStack
+from pipeline.pipeline_stack import PipelineStack
 
 app = cdk.App()
 
