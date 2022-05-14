@@ -21,3 +21,5 @@ class PipelineStack(cdk.Stack):
                 ]
             )
         )
+
+        pipeline.add_stage()
