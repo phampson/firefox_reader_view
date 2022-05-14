@@ -7,4 +7,4 @@ class PipelineStage(Stage):
     def __init__(self, scope, stage_name, props) -> None:
         super().__init__(scope, stage_name)
 
-        lambda_stack = FirefoxReaderViewStack(self, "FirefoxReaderViewStack", stage_name)
+        lambda_stack = FirefoxReaderViewStack(scope, "FirefoxReaderViewStack", stage_name)
