@@ -23,9 +23,11 @@ class FirefoxReaderViewStack(Stack):
             environment={"stage_name": stage_name}
         )
 
+        deployment_options = StageOptions(stage_name=stage_name)
+
         # Adding in a gateway to route the lambda
         apigw.LambdaRestApi(
             self, 'Endpoint',
             handler=my_lambda,
-            deploy_options=StageOptions(stage_name)
+            deploy_options=deployment_options
         )
