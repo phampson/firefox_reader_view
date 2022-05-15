@@ -20,15 +20,15 @@ class FirefoxReaderViewStack(Stack):
             handler='hello.handler',
             memory_size=4096,
             timeout=Duration.seconds(60),
-            environment={"stage_name": stage_name}
+            # environment={"stage_name": stage_name}
         )
 
-        deployment_options = StageOptions(stage_name=stage_name)
+        # deployment_options = StageOptions(stage_name=stage_name)
 
         # Adding in a gateway to route the lambda
         apigw.LambdaRestApi(
             self,
             'Endpoint',
             handler=my_lambda,
-            deploy_options=deployment_options
+            # deploy_options=deployment_options
         )
