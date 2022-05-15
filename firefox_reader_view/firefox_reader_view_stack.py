@@ -29,5 +29,5 @@ class FirefoxReaderViewStack(Stack):
         apigw.LambdaRestApi(
             self, 'Endpoint',
             handler=my_lambda,
-            deploy_options=deployment_options
+            # deploy_options=deployment_options
         )
