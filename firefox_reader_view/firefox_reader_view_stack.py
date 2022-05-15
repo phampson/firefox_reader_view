@@ -27,7 +27,8 @@ class FirefoxReaderViewStack(Stack):
 
         # Adding in a gateway to route the lambda
         apigw.LambdaRestApi(
-            self, 'Endpoint',
+            self,
+            'Endpoint',
             handler=my_lambda,
-            # deploy_options=deployment_options
+            deploy_options=deployment_options
         )
