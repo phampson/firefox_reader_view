@@ -7,4 +7,4 @@ class PipelineStage(cdk.Stage):
     def __init__(self, scope, stage_name, **kwargs) -> None:
         super().__init__(scope, stage_name, **kwargs)
 
-        lambda_stack = FirefoxReaderViewStack(self, "FirefoxReaderViewStack", stage_name)
+        FirefoxReaderViewStack(self, "FirefoxReaderViewStack", stage_name)
